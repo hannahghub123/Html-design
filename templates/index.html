@@ -9,118 +9,464 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
     <style>
-        .fluid-container{
+        .fluid-container {
             background-color: rgb(62, 69, 193);
             width: 100%;
-            height: 690px;
+            min-height: 100vh;
             position: relative;
+            padding: 15px;
         }
 
-        .sub-container{
-            position: absolute;
+        .sub-container {
+            position: relative;
             background-color: rgb(236, 229, 229);
-            margin-left: 50px;
-            margin-top: 50px;
-            height: 85%;
-            width: 96.7%;
+            margin: 15px auto;
+            padding: 15px;
+            width: 100%;
         }
-        .nav-bar{
-            margin-top: 20px;
-            margin-left: 50px;
+
+        .nav-bar {
+            margin-bottom: 20px;
         }
-        .box-container{
-            display: flex;
-            flex-direction: row;
-            margin-left: 50px;
-            margin-top: 30px;
-        }
-        .box1{
-            width: 350px;
-            background-color: white;
-            border-radius: 3px;
-            height: 180px;
+
+        .container {
             display: flex;
             flex-direction: column;
-            justify-content: space-evenly;
+            margin: 20px 0;
         }
-        .box2{
-            width:1000px;
+
+        .box1, .box2 {
+            width: 100%;
+            min-height: 21vh;
             background-color: white;
             border-radius: 3px;
-            margin-left: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            margin-bottom: 20px;
+            padding: 20px;
         }
-        .dropdown{
-            display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
+
+        .dropdown, .start-button {
+            width: 100%;
+            margin-bottom: 10px;
         }
-        .btn{
-            width: 100px;
-        }
-        input{
-            width: 100px;
+
+        .btn, input {
+            width: 100%;
             text-align: center;
         }
-        .start-button{
+
+        .start-button {
             background-color: rgb(224, 106, 15);
             color: white;
         }
 
+        .navbar,
+        .table,
+        .table-content {
+          border-bottom: 2px solid #ddd;
+          width: 100%;
+        }
+        .file-input-container {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          margin-top: 20px;
+        }
+        .dropdown-menu {
+          list-style: none;
+          padding: 0;
+        }
+      
+        .dropdown-item {
+          display: flex;
+          align-items: center;
+        }
+      
+        .dropdown-item input {
+          margin-right: 0;
+      }
+
+      .footer {
+        text-align: center;
+        padding: 10px;
+    }
     </style>
 </head>
 <body>
-    <div class="fluid-container">
-        <!-- <h1>hi</h1> -->
-        <div class="sub-container">
-            <div class="nav-bar ">
-                <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                      <li class="breadcrumb-item"><a href="#">Datacivet</a></li>
-                      <li class="breadcrumb-item"><a href="#">Projects</a></li>
-                      <li class="breadcrumb-item"><a href="#">Report</a></li>
-                      <li class="breadcrumb-item active" aria-current="page">Create Report</li>
-                    </ol>
-                  </nav>
-            </div>
-            <div class="box-container">
-                <div class="box1">
-                    <div class="dropdown">
-                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Run
-                        </button>
-                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Module
-                          </button>
-                    </div>
-                    <div class="dropdown">
-                        <input value="K8" readonly />
-                         
-                          <button class="btn start-button">
-                            Start
-                          </button>
-                    </div>
-                </div>
-                <div class="box2">
-                    <i class="fa fa-file mb-3" ></i>
-                    <p>Select run and Module then click the start button for start generating the report.</p>
-                </div>
-            </div>
-            
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
         </div>
-    </div>
+      </nav>
+
+      <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="sidebar" role="cdb-sidebar" color="white">
+                    <div class="sidebar-container">
+                      <div class="sidebar-header">
+                        <a class="sidebar-brand">Contrast Light</a>
+                        <a class="sidebar-toggler"><i class="fa fa-bars"></i></a>
+                      </div>
+                      <div class="sidebar-nav">
+                        <div class="sidenav">
+                          <a class="sidebar-item">
+                            <div class="sidebar-item-content">
+                              <i class="fa fa-th-large sidebar-icon sidebar-icon-lg"></i>
+                              <span>Dashboard</span>
+                              <div class="suffix">
+                                <div class="badge rounded-pill bg-danger">new</div>
+                              </div>
+                            </div>
+                          </a>
+                          <a class="sidebar-item">
+                            <div class="sidebar-item-content">
+                              <i class="fa fa-sticky-note sidebar-icon"></i>
+                              <span>Components</span>
+                            </div>
+                          </a>
+                          <a class="sidebar-item">
+                            <div class="sidebar-item-content">
+                              <i class="fa fa-sticky-note sidebar-icon"></i>
+                              <span>Bootstrap</span>
+                            </div>
+                          </a>
+                        </div>
+                        <div class="sidebar-footer">Sidebar Footer</div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-md-10">
+                <div class="fluid-container">
+                    <!-- <h1>hi</h1> -->
+                    <div class="sub-container">
+                        <div class="nav-bar ">
+                            <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                                <ol class="breadcrumb fs-6 fs-lg-4">
+                                  <li class="breadcrumb-item"><a href="#">Datacivet</a></li>
+                                  <li class="breadcrumb-item"><a href="#">Projects</a></li>
+                                  <li class="breadcrumb-item"><a href="#">Report</a></li>
+                                  <li class="breadcrumb-item active" aria-current="page">Create Report</li>
+                                </ol>
+                              </nav>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="box1">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="dropdown">
+                                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%;">
+                                                        Run
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="dropdown">
+                                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%;">
+                                                        Module
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="dropdown">
+                                                    <input value="K8" readonly style="width: 100%;"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="dropdown">
+                                                    <button class="btn start-button" style="width: 100%;">
+                                                        Start
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-8">
+                                    <div class="box2">
+                                        <div class="before-start text-center">
+                                            <i class="fa fa-file mb-3" ></i>
+                                            <p>Select run and Module then click the start button for start generating the report.</p>    
+                                        </div>
+                                        <div class="after-start">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="navbar">
+                                                            <ul class="nav nav-underline" style="margin-left: 10px; display: flex; align-items: center;">
+                                                                <li>
+                                                                    <a class="nav-link active" aria-current="page" href="#" data-target="graphContent"><i class="fa fa-line-chart"></i>Graph</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="nav-link" href="#" data-target="tableContent" id="table"><i class="fa fa-table" aria-hidden="true"></i>Table</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="nav-link" href="#" data-target="imageContent"><i class="fa-solid fa-image"></i>Image</a>
+                                                                </li>
+                                                                <li style="margin-left: auto;">
+                                                                    <div class="container">
+                                                                        <div class="row">
+                                                                            <div class="col-md-6 ">
+                                                                                <button class="btn btn-outline-secondary btn-sm" type="button">&lt;Previous Slide</button>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <button class="btn btn-outline-secondary btn-sm" type="button" >Next Slide &gt;</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+            
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        
+                                                          <div id="graphContent" class="content container-fluid">
+                                                            <p><b>Sensor Listing</b></p>
+                                                            
+                                                                        <div class="box2-dropdown">
+                                                                            <div class="container">
+                                                                                <div class="row">
+                                                                                    <div class="col-md-12 col-lg-6 mb-2">
+                                                                                        <div class="btn-group">
+                                                                                            <button
+                                                                                              class="btn btn-outline-secondary dropdown-toggle"
+                                                                                              type="button"
+                                                                                              data-bs-toggle="dropdown"
+                                                                                              aria-expanded="false"
+                                                                                              style="width: 100%;"
+                                                                                            >
+                                                                                              None selected
+                                                                                            </button>
+                                                                                            <ul class="dropdown-menu">
+                                                                                                <li class="dropdown-item"><input class="dropdown-item" type="checkbox"/>Select All</li>
+                                                                                                <li class="dropdown-item"><input class="dropdown-item" type="checkbox"/>Select 1</li>
+                                                                                                <li class="dropdown-item"><input class="dropdown-item" type="checkbox"/>Select 2</li>
+                                                                                                <li class="dropdown-item"><input class="dropdown-item" type="checkbox"/>Select 3</li>
+                                                                                                <li class="dropdown-item"><input class="dropdown-item" type="checkbox"/>Select 4</li>
+                                                                                              </ul>
+                                                                                          </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-12 col-lg-6 mb-2">
+                                                                                        <button
+                                                                                        class="btn start-button"
+                                                                                        id="start-button"
+                                                                                        style="width: 100%;"
+                                                                                      >
+                                                                                        Generate Report
+                                                                                      </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                         
+                                                                        </div>
+                                                                 
+                                                           
+                                                          </div>
+                                                          <div id="tableContent" class="content container-fluid">
+                                                            <div class="table-content">
+                                                                <p><b>Previous run listing</b></p>
+                                                                <div class="box2-dropdown">
+                                                                    <div class="container">
+                                                                        <div class="row">
+                                                                            <div class="col-md-12 col-lg-4 mb-2">
+                                                                            
+                                                                               
+                                                                                <button
+                                                                                    class="btn btn-outline-secondary dropdown-toggle "
+                                                                                    type="button"
+                                                                                    data-bs-toggle="dropdown"
+                                                                                    aria-expanded="false"
+                                                                                    style="width: 100%;"
+                                                                                >
+                                                                                    Run
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="col-md-12 col-lg-4 mb-2">
+                                                                                    <button
+                                                                                        class="btn btn-outline-secondary dropdown-toggle"
+                                                                                        type="button"
+                                                                                        data-bs-toggle="dropdown"
+                                                                                        aria-expanded="false"
+                                                                                        style="width: 100%;"
+                                                                                    >
+                                                                                        Module
+                                                                                    </button>
+                                                                            </div>
+                                                                            <div class="col-md-12 col-lg-4 mb-2">
+                                                                                    <button class="btn start-button" id="start-button" style="width: 100%;">
+                                                                                        Add
+                                                                                    </button>
+                                                                                </div>
+                                                                        
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <p><b>Sensor Listing</b></p>
+                                                                <button
+                                                                  class="btn btn-outline-secondary dropdown-toggle mb-3"
+                                                                  type="button"
+                                                                  data-bs-toggle="dropdown"
+                                                                  aria-expanded="false"
+                                                                  style="width: 100%"
+                                                                >
+                                                                  None selected
+                                                                </button>
+                                                            </div>
+            
+                                                           
+                                                           
+                                              
+                                                            <table class="table table-responsive">
+                                                              <thead>
+                                                                <tr>
+                                                                  <th>Run Name</th>
+                                                                  <th>Module Name</th>
+                                                                  <th>Remarks</th>
+                                                                </tr>
+                                                              </thead>
+                                                            </table>
+                                                            <div class="file-input-container">
+                                                                <div class="row">
+                                                                    <div class="col-md-12 col-lg-6">
+                                                                        <input
+                                                                        type="file"
+                                                                        id="fileInput"
+                                                                        onchange="handleFileChange()"
+                                                                      />
+                                                                    </div>
+                                                                    <div class="col-md-12 col-lg-6">
+
+                                                                        <button
+                                                                        class="btn start-button"
+                                                                        id="start-button"
+                                                                        style="width: 100%;"
+                                                                      >
+                                                                        Generate Report
+                                                                      </button>
+                                                                    </div>
+                                                                </div>
+                                                             
+                                                            </div>
+                                                          </div>
+            
+                                                          <div id="imageContent" class="content container-fluid">
+                                                            <div class="file-input-container">
+                                                              <input
+                                                                type="file"
+                                                                id="fileInput"
+                                                                onchange="handleFileChange()"
+                                                              />
+                                                            </div>
+                                                            <div class="box2-dropdown">
+                                                                <div class="container">
+                                                                    <div class="row">
+                                                                        <div class="col-md-12 col-lg-6">
+                                                                            <p>Enter the image heading</p>
+                                                                        </div>
+                                                                        <div class="col-md-12 col-lg-6">
+                                                                            <button
+                                                                            class="btn start-button"
+                                                                            id="start-button"
+                                                                            style="width: 100%; "
+                                                                          >
+                                                                            Generate Report
+                                                                          </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                              
+                                                              
+                                                            </div>
+                                                          </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+            
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+
+
+
+    <footer class="footer mt-auto py-3 bg-light">
+        <!-- Footer content goes here -->
+        <div class="container">
+            <p class="text-muted">Your footer content here.</p>
+        </div>
+    </footer>
 
     <script>
+
         $(document).ready(function () {
+            $(".before-start").show()
+            $(".after-start").hide()
           // Handle click event for the Start button
           $(".start-button").click(function () {
             // Assuming you want to navigate to anotherPage.html
-            window.location.href = "reportPage.html";
-          });
+            $(".after-start").show()
+            $(".before-start").hide()
+
+            $(".content").hide();
+        $("#graphContent").show();
+
+        $(".nav-link").click(function () {
+          var targetId = $(this).data("target");
+          console.log("Clicked on button with data-target:", targetId);
+          $(".content").hide();
+          $("#" + targetId).show();
         });
+      });
+      
+    });
+
+          
+   
       </script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
 
